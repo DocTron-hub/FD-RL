@@ -636,6 +636,8 @@ To better understand the FD-RL model's capabilities across different document sc
 
 This below is a simple example of how to use FD-RL for document parsing tasks.
 
+### Using 🤗 Transformers to Chat
+
 Please first install [transformers](https://github.com/huggingface/transformers) using the following command:
 
 ```shell
@@ -697,6 +699,67 @@ print(output_text[0])
 # $$
 ```
 
+### Online Serving
+We suggest using vLLM for efficient FD-RL inference. Make sure to install `vllm==0.11.0` or above for full compatibility.
+For detailed instructions on serving and inference with multimodal models, visit the [vLLM documentation](https://docs.vllm.ai/en/stable/).
+
+```shell
+pip install "vllm>=0.11.0"
+```
+
+- vLLM server
+
+```shell
+MODEL_PATH=path/to/your/model
+TENSOR_PARALLEL_SIZE=depends/on/your/hardware
+
+python3 -m vllm.entrypoints.openai.api_server \
+    --model $MODEL_PATH \
+    --host 0.0.0.0 \
+    --port 22002 \
+    --tensor-parallel-size $TENSOR_PARALLEL_SIZE \
+    --max-num-seqs 80 \
+    --max-model-len 16384 \
+    --gpu-memory-utilization 0.9 
+```
+
+- Image Request Example
+
+```python
+from openai import OpenAI
+ 
+MODEL_PATH="path/to/your/model"
+FILE_PATH="path/to/your/image"
+
+client = OpenAI(
+    base_url="http://127.0.0.1:22002/v1",
+    api_key="EMPTY"
+)
+
+response = client.chat.completions.create(
+    model=MODEL_PATH,
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Extract the main content from the document in the image, keeping the original structure. Convert all formulas to LaTeX and all tables to HTML."
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url":  f"file://{FILE_PATH}"
+                    }
+                }
+            ]
+        }
+    ]
+)
+
+print(response.choices[0].message.content)
+```
+
 ## Fine-tuning
 
 ### SFT
@@ -746,6 +809,9 @@ torchrun --nproc_per_node="${GPUS_PER_NODE}" --nnodes="${NNODES}" --node_rank="$
 ```
 
 <!-- ### RL -->
+
+# 📧 Contact
+For any questions or collaboration inquiries, please don't hesitate to contact me at zhongyufeng21@mails.ucas.ac.cn.
 
 # 📌 Acknowledgement
 We sincerely appreciate [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for providing reference training framework.
