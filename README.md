@@ -4,9 +4,9 @@
 </div>
 
 <div align="center">
-<!-- <a href=''><img src='https://img.shields.io/badge/Arxiv-2507.15509-b31b1b.svg?logo=arXiv'></a>&ensp; -->
+<a href='https://arxiv.org/pdf/2601.08834'><img src='https://img.shields.io/badge/Arxiv-2507.15509-b31b1b.svg?logo=arXiv'></a>&ensp;
 <a href='https://huggingface.co/DocTron/FD-RL'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face%20-models-blue'></a>&ensp;
-<a href='./assets/FD-RL_paper.pdf'><img src='https://img.shields.io/badge/Paper-PDF-b31b1b.svg?logo=adobeacrobatreader&logoColor=white'></a>&ensp;
+<!-- <a href='./assets/FD-RL_paper.pdf'><img src='https://img.shields.io/badge/Paper-PDF-b31b1b.svg?logo=adobeacrobatreader&logoColor=white'></a>&ensp; -->
 <a href=https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE><img src='https://img.shields.io/badge/License-Apache_2.0-green.svg'></a>
 <!-- Lei Chen, Xuanle Zhao, Zhixiong Zeng†, Jing Huang, Yufeng Zhong, Lin Ma* -->
 </div>
