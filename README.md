@@ -817,16 +817,13 @@ For any questions or collaboration inquiries, please don't hesitate to contact m
 We sincerely appreciate [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory) for providing reference training framework.
 
 
-<!-- ## 📖 Citation
+## 📖 Citation
 If you find this project useful, please feel free to leave a star and cite our paper:
 ```
-@misc{chen2025chartr1,
-      title={Chart-R1: Chain-of-Thought Supervision and Reinforcement for Advanced Chart Reasoner}, 
-      author={Lei Chen and Xuanle Zhao and Zhixiong Zeng and Jing Huang and Yufeng Zhong and Lin Ma},
-      year={2025},
-      eprint={2507.15509},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2507.15509}, 
+@article{zhong2025reading,
+  title={Reading or Reasoning? Format Decoupled Reinforcement Learning for Document OCR},
+  author={Zhong, Yufeng and Chen, Lei and Zeng, Zhixiong and Zhao, Xuanle and Jiang, Deyang and Zheng, Liming and Huang, Jing and Qiu, Haibo and Shi, Peng and Yang, Siqi and others},
+  journal={arXiv preprint arXiv:2601.08834},
+  year={2025}
 }
-``` -->
+```
